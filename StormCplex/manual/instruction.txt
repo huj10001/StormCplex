@@ -1,0 +1,12 @@
+instruction to run 09/15
+
+maven build -> stormcplex-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+submit_data.bat -> upload data file
+submit_jar.bat -> upload jar file
+ssh uconncse@137.99.252.217 -p 10022
+runCluster.sh | screen -RR -> start clusters
+distributefile.sh <filename>
+runCplex.sh <topologyname> <#machines> <#subproblems> <datafile>
+http://137.99.252.217:18080/index.html, see <topology name> runnning, kill topology.
+ssh StormNode102 | scp ~/apache-storm-1.0.2.logs/workers-artifacts/<topologyname>/6700/worker.log StormNode000:<logfile>
+pscp -P 10022 uconncse@137.99.252.217:<logfile> <locallogfile>
